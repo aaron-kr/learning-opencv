@@ -34,6 +34,6 @@ class Video(animation.FuncAnimation):
 
 # Program Start
 camera = Video()
-## camera = Video('./data/record0.mp4')
+## camera = Video('../data/record0.mp4')
 plt.show()
 camera.close()

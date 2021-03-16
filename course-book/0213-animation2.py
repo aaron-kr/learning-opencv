@@ -25,7 +25,7 @@ fig.canvas.set_window_title('Video Capture')
 plt.axis('off')
 
 camera = Video()
-## camera = Video('./data/record0.mp4')
+## camera = Video('../data/record0.mp4')
 ani = animation.FuncAnimation(fig, camera.updateFrame, interval = 50)
 plt.show()
 camera.close()

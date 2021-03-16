@@ -1,7 +1,7 @@
 import cv2
 
 cap = cv2.VideoCapture(0) # 0 = Camera
-## cap = cv2.VideoCapture('./vid/vtest.avi')
+## cap = cv2.VideoCapture('../vid/vtest.avi')
 ## cap.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
 ## cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
 

@@ -1,7 +1,7 @@
 import cv2
 from matplotlib import pyplot as plt
 
-path = './img/'
+path = '../img/'
 imageFile = path + 'basketball.jpg'
 
 ## MATPLOTLIB 1 : BGR
