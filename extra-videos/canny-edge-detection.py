@@ -1,7 +1,7 @@
 import numpy as np 
 import cv2
 
-img0 = cv2.imread('./img/tomatoes.jpg', 1)
+img0 = cv2.imread('../img/tomatoes.jpg', 1)
 img = cv2.resize(img0, (960, 540))
 
 # Threshold - blurs multiple red tomatoes into one

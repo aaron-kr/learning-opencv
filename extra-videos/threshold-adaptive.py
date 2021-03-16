@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 
-img = cv2.imread('./img/spirit-week.jpg', 0)
+img = cv2.imread('../img/spirit-week.jpg', 0)
 cv2.imshow("Original", img)
 
 ret, thresh_basic = cv2.threshold(img, 70, 255, cv2. THRESH_BINARY)
