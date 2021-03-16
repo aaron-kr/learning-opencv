@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 
-bw = cv2.imread('C:/Users/Aaron/Pictures/GPA/spirit-week.jpg', 0)
+bw = cv2.imread('./img/spirit-week.jpg', 0)
 height, width = bw.shape[0:2]
 cv2.imshow("Original BW", bw)
 
