@@ -3,12 +3,13 @@ import cv2
 import numpy as np
 
 #1
-src = cv2.imread('../../img/tomatoes.jpg')
+src0 = cv2.imread('../../img/tomatoes.jpg')
+src = cv2.resize(src0, dsize=(640, 480))
 hsv = cv2.cvtColor(src, cv2.COLOR_BGR2HSV)
 h,s,v = cv2.split(hsv)
 
 #2
-roi = cv2.selectROI(src)
+roi = cv2.selectROI(src, showCrosshair=True)
 print('roi = ', roi)
 roi_h = h[roi[1]:roi[1] + roi[3], roi[0]:roi[0] + roi[2]]
 hist = cv2.calcHist([roi_h], [0], None, [64], [0,256])

@@ -66,7 +66,7 @@ def ptsEigenVector(eVal, eVect):
 
 # draw eVects[0]
 x1, y1, x2, y2 = ptsEigenVector(eVals[0], eVects[0])
-cv2.line(dst, (x1,y1), (x2,y2), (0,0,255), 2)
+cv2.line(dst, (x1,y1), (x2,y2), (0,0,255), 2) # error here
 
 #draw eVects[1]
 x1, y1, x2, y2 = ptsEigenVector(eVals[1], eVects[1])

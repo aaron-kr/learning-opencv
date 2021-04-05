@@ -6,8 +6,8 @@ from matplotlib import pyplot as plt
 src = cv2.imread('../../img/link-arrow-512.png', cv2.IMREAD_GRAYSCALE)
 dst = cv2.equalizeHist(src)
 cv2.imshow('dst', dst)
-cv2.waitKey()
-cv2.destroyAllWindows()
+# cv2.waitKey()
+# cv2.destroyAllWindows()
 
 plt.title('Grayscale histogram')
 

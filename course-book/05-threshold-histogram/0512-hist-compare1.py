@@ -22,10 +22,10 @@ H2 = cv2.calcHist(images = [pts2], channels = [0], mask = None, histSize = [256]
 cv2.normalize(H2, H2, 1, 0, cv2.NORM_L1)
 
 #3
-d1 = cv2.compareHist(H1, H2, cv2.HISTCMP_CORREL)
-d2 = cv2.compareHist(H1, H2, cv2.HISTCMP_CHISQR)
-d3 = cv2.compareHist(H1, H2, cv2.HISTCMP_INTERSECT)
-d4 = cv2.compareHist(H1, H2, cv2.HISTCMP_BHATTACHARYYA)
+d1 = cv2.compareHist(H1, H2, cv2.HISTCMP_CORREL) # similar to d3 (as it gets bigger)
+d2 = cv2.compareHist(H1, H2, cv2.HISTCMP_CHISQR) # like d4 (as it gets smaller)
+d3 = cv2.compareHist(H1, H2, cv2.HISTCMP_INTERSECT) # similar to d1
+d4 = cv2.compareHist(H1, H2, cv2.HISTCMP_BHATTACHARYYA) # like d2
 
 print('d1(H1, H2, CORREL) = ', d1)
 print('d1(H1, H2, CHISQR) = ', d2)

@@ -5,7 +5,7 @@ import numpy as np
 src = cv2.imread('../../img/spirit-week.jpg', cv2.IMREAD_GRAYSCALE)
 dst = np.zeros(src.shape, dtype = src.dtype)
 
-N = 4 # 8, 16, 32
+N = 128 # 8, 16, 32 - bigger numbers = more detail
 height, width = src.shape # grayscale
 ## height, width, _ = src.shape # color
 
