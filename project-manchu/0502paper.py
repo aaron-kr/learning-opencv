@@ -49,6 +49,7 @@ print("Number of font areas = ", n_fontarea)
 # Make a copy of the cols to manipulate it
 bcols = cols.copy()
 
+# Kind of like using ReLU (Rectified Linear Unit) to return either a 1 if data exists, or a 0 if no data exists
 for i in range(width):
     if cols[i] > 0: # if some data exists in this col
         bcols[i] = 1 # then set bcols at the same location to 1 (binary)
@@ -168,6 +169,9 @@ def findLetter(word):
 
     print("wordRows = ", w_rows)
 
+    # Use Gradient Descent Momentum to solve this?
+    # Step = Average of previous steps, beta is some constant between 0 & 1 that we can multiple each step by
+    # Step(n) = Step(n) + beta*Step(n-1) + beta^2*Step(n-2) + beta^3*Step(n-3)... etc.
     for i in range(1, height - 1):
         if w_rows[i-1] >= 4 and w_rows[i] <= 4 and w_rows[i+1] >= 4:
             print("checking: ", w_rows[i-1], ", ", w_rows[i], ", ", w_rows[i+1])
