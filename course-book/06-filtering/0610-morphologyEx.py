@@ -12,11 +12,11 @@ gradient = cv2.morphologyEx(opening, cv2.MORPH_GRADIENT, kernel)
 tophat = cv2.morphologyEx(src, cv2.MORPH_TOPHAT, kernel, iterations = 5)
 blackhat = cv2.morphologyEx(src, cv2.MORPH_BLACKHAT, kernel, iterations = 5)
 
-cv2.imshow('opening', opening)
-cv2.imshow('closing', closing)
-cv2.imshow('gradient', gradient)
-cv2.imshow('tophat', tophat)
-cv2.imshow('blackhat', blackhat)
+cv2.imshow('opening', opening) # think of as "dilate"
+cv2.imshow('closing', closing) # think of as "erode"
+cv2.imshow('gradient', gradient) # where does the pixel vector (gradient) change? finds the lines
+cv2.imshow('tophat', tophat) # find all the "salt"
+cv2.imshow('blackhat', blackhat) # find all the "pepper"
 
 cv2.waitKey()
 cv2.destroyAllWindows()

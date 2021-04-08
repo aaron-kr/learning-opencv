@@ -172,10 +172,26 @@ def findLetter(word):
     # Use Gradient Descent Momentum to solve this?
     # Step = Average of previous steps, beta is some constant between 0 & 1 that we can multiple each step by
     # Step(n) = Step(n) + beta*Step(n-1) + beta^2*Step(n-2) + beta^3*Step(n-3)... etc.
-    for i in range(1, height - 1):
-        if w_rows[i-1] >= 4 and w_rows[i] <= 4 and w_rows[i+1] >= 4:
+    min = w_rows[0] # initial low value
+    max = w_rows[0] # initial high value
+
+    for i in range(2, height - 1):
+        # add two sibling values
+        sum0 = w_rows[i-2] + w_rows[i-1]
+        sum1 = w_rows[i-1] + w_rows[i]
+        sum2 = w_rows[i] + w_rows[i+1]
+        valley = 0
+        # when sum is rising, cut
+        if sum2 > sum1 and sum1 < sum0:
+            valley += 1
+        # if w_rows[i] != 0 and w_rows[i] > 1:
+        #     min = w_rows[i] 
+        #     if w_rows[i] > min:
+        #         max = w_rows[i] 
+        # if w_rows[i-1] >= 4 and w_rows[i] <= 4 and w_rows[i+1] >= 4:
             print("checking: ", w_rows[i-1], ", ", w_rows[i], ", ", w_rows[i+1])
             n_letters = n_letters + 1
+    print('min = ', min, 'max = ', max)
     
     print("Number of letters in word = ", n_letters)
 

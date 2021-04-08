@@ -8,7 +8,7 @@ import numpy as np
 
 #1
 src = cv2.imread('../../img/manchu01.jpg', cv2.IMREAD_GRAYSCALE)
-## src = cv2.bitwise_not(src)
+src = cv2.bitwise_not(src)
 
 ret, A = cv2.threshold(src, 128, 255, cv2.THRESH_BINARY)
 skel_dst = np.zeros(src.shape, np.uint8)

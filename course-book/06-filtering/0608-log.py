@@ -19,7 +19,7 @@ def logFilter(ksize = 7):
 #2
 kernel = logFilter() # 7, 15, 31, 51
 LoG = cv2.filter2D(src, cv2.CV_32F, kernel)
-cv2.imshow('LoG', LoG)
+cv2.imshow('LoG', LoG) # Laplacian of Gaussian (LoG), or GoL = Gaussian of Laplacian
 
 #3
 def zeroCrossing2(lap, thresh = 0.01):
