@@ -111,6 +111,8 @@ for i in range(0, len(cutXpoints) - 1):
     filename = './img/lines/manchu01-' + str(i) + '.jpg'
     cv2.imwrite(filename, cutline)
     # print('finished img', i)
+
+print('Number of Lines cut: ', len(scriptLines))
 """
 2. findWords : Divide the columns of text into words
 """
@@ -164,6 +166,8 @@ for line in range(0, len(scriptLines)):
         cv2.imwrite(filename, cutword)
 
         scriptWords.append(cutword)
+
+print('Number of Words cut: ', len(scriptWords))
 """
 3. findLetters() : Divide the words into individual letters
 """
@@ -223,16 +227,16 @@ for word in scriptWords:
     j = 0
     startpoint = 0
 
-    for i in range(1, height):
-        if i == height - 1:
-            endpoint = i
-            cutSubYpoints[j] = (startpoint + endpoint) // 2
-        elif arows[i - 1] == 0 and arows[i] == 1:
-            endpoint = i - 1
-            cutSubYpoints[j] = (startpoint + endpoint) // 2
-            j = j + 1
-        elif arows[i - 1] == 1 and arows[i] == 0:
-            startpoint = i
+    # for i in range(1, height):
+    #     if i == height - 1:
+    #         endpoint = i
+    #         cutSubYpoints[j] = (startpoint + endpoint) // 2
+    #     elif arows[i - 1] == 0 and arows[i] == 1:
+    #         endpoint = i - 1
+    #         cutSubYpoints[j] = (startpoint + endpoint) // 2
+    #         j = j + 1
+    #     elif arows[i - 1] == 1 and arows[i] == 0:
+    #         startpoint = i
 
     print("cutSubYpoints = ", cutSubYpoints)
     plt.plot(w_rows)
