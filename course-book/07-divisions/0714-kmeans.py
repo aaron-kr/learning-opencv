@@ -3,12 +3,12 @@ import cv2
 import numpy as np
 
 #1
-src = cv2.imread('../../img/zelda-logo-512.jpg')
-# src = cv2.imread('../../img/link-arrow-512.png')
+# src = cv2.imread('../../img/zelda-logo-512.jpg')
+src = cv2.imread('../../img/link-arrow-512.png')
 hsv = cv2.cvtColor(src, cv2.COLOR_BGR2HSV)
 
-data = src.reshape((-1, 3)).astype(np.float32)
-# data = hsv.reshape((-1, 3)).astype(np.float32)
+# data = src.reshape((-1, 3)).astype(np.float32) # use with zelda-logo-512.jpg
+data = hsv.reshape((-1, 3)).astype(np.float32) # use with link-arrow-512.png
 
 #2
 K = 2

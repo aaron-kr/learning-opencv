@@ -4,8 +4,8 @@ import numpy as np
 
 src = cv2.imread('../../img/spirit-week.jpg', cv2.IMREAD_GRAYSCALE)
 
-edges1 = cv2.Canny(src, 50, 100)
-edges2 = cv2.Canny(src, 50, 200)
+edges1 = cv2.Canny(src, 50, 50)
+edges2 = cv2.Canny(src, 50, 250)
 
 cv2.imshow('edges1', edges1)
 cv2.imshow('edges2', edges2)

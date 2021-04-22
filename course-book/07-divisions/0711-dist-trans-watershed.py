@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 
 #1
-src = cv2.imread('../../img/circles.jpeg')
+src = cv2.imread('../../img/link-arrow-512.png')
 gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
 ret, bImage = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
 dist = cv2.distanceTransform(bImage, cv2.DIST_L1, 3)
