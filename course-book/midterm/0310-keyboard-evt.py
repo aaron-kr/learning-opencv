@@ -11,13 +11,13 @@ while True:
         break
 
     # Direction keys
-    elif key == 0x270000:  # right
+    elif key == 0x27:  # right
         direction = 0
-    elif key == 0x280000:  # down
+    elif key == 0x28:  # down
         direction = 1
-    elif key == 0x250000:  # left
+    elif key == 0x25:  # left
         direction = 2
-    elif key == 0x260000:  # up
+    elif key == 0x26:  # up
         direction = 3
 
     # Direction movement
@@ -31,18 +31,14 @@ while True:
         y -= 10
 
     # Checking the borders
-    if x < R - width:
-        x = R
-        direction = 0
-    if x > width:
-        x = R - width
-        direction = 2
-    if y < R - height:
-        y = R
-        direction = 1
-    if y > height:
-        y = R - height
-        direction = 3
+    if x < 0 - R:
+        x = width + R
+    if x > width + R:
+        x = 0 - R
+    if y < 0 - R:
+        y = height + R
+    if y > height + R:
+        y = 0 - R
 
     # Erase and redraw
     img = np.zeros((width, height, 3), np.uint8) + 255  # erase the old one
