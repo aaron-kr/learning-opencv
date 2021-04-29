@@ -7,8 +7,8 @@ src = cv2.imread('../../img/link-arrow-512.png', cv2.IMREAD_GRAYSCALE)
 cv2.imshow('src', src)
 
 #1
-gx = cv2.Sobel(src, cv2.CV_32F, 1, 0, ksize = 3)
-gy = cv2.Sobel(src, cv2.CV_32F, 0, 1, ksize = 3)
+gx = cv2.Sobel(src, cv2.CV_32F, 1, 0, ksize = 3) # x
+gy = cv2.Sobel(src, cv2.CV_32F, 0, 1, ksize = 3) # y
 
 mag, angle = cv2.cartToPolar(gx, gy, angleInDegrees = True)
 minVal, maxVal, minLoc, maxLoc = cv2.minMaxLoc(angle)
