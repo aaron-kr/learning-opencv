@@ -6,8 +6,8 @@ import numpy as np
 src = cv2.imread('../../img/shapes.png')
 gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
 
-K = 5
-## K = 10
+# K = 5
+K = 10
 corners = cv2.goodFeaturesToTrack(gray, maxCorners = K, qualityLevel = 0.05, minDistance = 10)
 print('corners.shape = ', corners.shape)
 print('corners = ', corners)

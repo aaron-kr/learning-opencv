@@ -5,7 +5,7 @@ import numpy as np
 #1
 src = cv2.imread('../../img/chessboard-sm.jpg')
 gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
-patternSize = (6,3)
+patternSize = (3,3)
 found, corners = cv2.findChessboardCorners(src, patternSize)
 print('corners.shape = ', corners.shape)
 

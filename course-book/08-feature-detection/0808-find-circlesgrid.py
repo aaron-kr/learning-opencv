@@ -5,7 +5,7 @@ import numpy as np
 #1
 src = cv2.imread('../../img/circle-grid.png')
 gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
-patternSize = (6,4)
+patternSize = (3,3)
 found, centers = cv2.findCirclesGrid(src, patternSize)
 print('centers.shape = ', centers.shape)
 
