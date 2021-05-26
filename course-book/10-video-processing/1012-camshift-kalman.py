@@ -33,7 +33,7 @@ def onMouse(event, x,y, flags, param = None):
 cv2.namedWindow('tracking')
 cv2.setMouseCallback('tracking', onMouse)
 
-cap = cv2.VideoCapture('../../vid/ball.wmv')
+cap = cv2.VideoCapture('../data/ball.wmv')
 if ( not cap.isOpened() ):
     print('Error opening video.')
 
@@ -115,7 +115,7 @@ while True:
         ## dst = cv2.polylines(frame2, [pts], True, (0,0,255), 2)
 
         #4-4: Kalman correct
-        z = np.array([[cx][cy]], dtype = np.float32) # measurement
+        z = np.array([[cx][cy]], dtype = np.float32) # measurement # error here
         estimate = KF.correct(z)
         estimate = np.int0(estimate)
 

@@ -15,7 +15,7 @@ def drawFlow(img, flow, thresh = 2, stride = 8):
                 cv2.line(img, (x,y), (x+dx,y+dy), (255,0,0), 1)
 
 #2
-cap = cv2.VideoCapture('../../vid/vtest.avi')
+cap = cv2.VideoCapture('../data/vtest.avi')
 if ( not cap.isOpened() ):
     print('Error opening video.')
 
@@ -40,10 +40,10 @@ while True:
     t += 1
     print('t = ', t)
     imgC = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    imgC = cv2.GaussianBlur(frame, (5,5), 0.5)
+    # imgC = cv2.GaussianBlur(frame, (5,5), 0.5)
 
     #3-1
-    flow = cv2.calcOpticalFlowFarneback(imgP, imgC, None, **params)
+    flow = cv2.calcOpticalFlowFarneback(imgP, imgC, None, **params) # error here
     drawFlow(frame, flow, TH)
 
     #3-2

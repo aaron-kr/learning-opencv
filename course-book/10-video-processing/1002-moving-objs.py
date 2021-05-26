@@ -3,15 +3,15 @@ import cv2
 import numpy as np
 
 #1
-cap = cv2.VideoCapture('../../vid/vtest.avi')
+cap = cv2.VideoCapture('../data/vtest.avi')
 if ( not cap.isOpened() ):
   print('Error opening video')
 
 h,w = (int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)), int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)))
 TH = 40 # binary threshold
 AREA_TH = 80 # area threshold
-bkg_gray = cv2.imread('../../vid/avg_gray.png', cv2.IMREAD_GRAYSCALE)
-bkg_bgr = cv2.imread('../../vid/avg_bgr.png')
+bkg_gray = cv2.imread('../data/avg_gray.png', cv2.IMREAD_GRAYSCALE)
+bkg_bgr = cv2.imread('../data/avg_bgr.png')
 
 mode = cv2.RETR_EXTERNAL
 method = cv2.CHAIN_APPROX_SIMPLE

@@ -33,7 +33,7 @@ def onMouse(event, x,y, flags, param = None):
 cv2.namedWindow('tracking')
 cv2.setMouseCallback('tracking', onMouse)
 
-cap = cv2.VideoCapture('../../vid/vtest.avi')
+cap = cv2.VideoCapture('../data/checkBoard3x3.avi')
 if ( not cap.isOpened() ):
     print('Error opening video.')
 
@@ -52,7 +52,7 @@ while True:
     t += 1
     print('t = ', t)
     imgC = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    imgC = cv2.GaussianBlur(frame, (5,5), 0.0)
+    # imgC = cv2.GaussianBlur(frame, (5,5), 0.0)
 
     #3-1
     if mouse_status == 2:
@@ -68,7 +68,7 @@ while True:
         roi_mask[:,:] = 0
         roi_mask[y1:y2, x1:x2] = 1
         
-        p1 = cv2.goodFeaturesToTrack(imgC, mask = roi_mask, **params)
+        p1 = cv2.goodFeaturesToTrack(imgC, mask = roi_mask, **params) # error here
         if len(p1) >= 4:
             p1 = cv2.cornerSubPix(imgC, p1, (5,5), (-1,-1), term_crit)
             rect = cv2.minAreaRect(p1)

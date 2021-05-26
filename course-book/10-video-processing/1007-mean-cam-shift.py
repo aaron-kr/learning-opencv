@@ -30,10 +30,12 @@ def onMouse(event, x,y, flags, param = None):
         mouse_status = 3 # complete
 
 #2
-cv2.namedWindow('tracking')
-cv2.setMouseCallback('tracking', onMouse)
+cv2.namedWindow('meanShift tracking')
+cv2.setMouseCallback('meanShift tracking', onMouse)
 
-cap = cv2.VideoCapture('../../vid/ball.wmv')
+# Can also do this with the webcam
+# cap = cv2.VideoCapture('../data/ball.wmv')
+cap = cv2.VideoCapture(0) # webcam
 if ( not cap.isOpened() ):
     print('Error opening video.')
 
@@ -100,7 +102,7 @@ while True:
         ## cv2.imshow('CamShift tracking', frame2)
         ## cv2.waitKey(0)
     
-    cv2.imshow('tracking', frame) # meanShift
+    cv2.imshow('meanShift tracking', frame) # meanShift
     cv2.imshow('CamShift tracking', frame2) # CamShift 
     key = cv2.waitKey(25)
     if key == 27:

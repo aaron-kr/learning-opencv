@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 
 #1
-cap = cv2.VideoCapture('../../vid/vtest.avi')
+cap = cv2.VideoCapture('../data/vtest.avi')
 if ( not cap.isOpened() ):
   print('Error opening video')
 
@@ -27,7 +27,7 @@ while True:
   
   #2-1
   if t < 50:
-    cv2.accumulate(blue, acc_bgr)
+    cv2.accumulate(blur, acc_bgr)
     continue
   elif t == 50:
     bkg_bgr = acc_bgr / t

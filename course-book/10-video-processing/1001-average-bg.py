@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 
 #1
-cap = cv2.VideoCapture('../../vid/vtest.avi')
+cap = cv2.VideoCapture('../data/vtest.avi')
 if ( not cap.isOpened() ):
     print('Error opening video.')
 
@@ -41,6 +41,6 @@ while True:
 
 #3
 if cap.isOpened(): cap.release()
-cv2.imwrite('../../vid/avg_gray.png', dst_gray)
-cv2.imwrite('../../vid/avg_bgr.png', dst_bgr)
+cv2.imwrite('../data/avg_gray.png', dst_gray)
+cv2.imwrite('../data/avg_bgr.png', dst_bgr)
 cv2.destroyAllWindows()

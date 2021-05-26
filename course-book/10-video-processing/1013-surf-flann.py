@@ -3,7 +3,8 @@ import cv2
 import numpy as np
 
 #1
-src1 = cv2.imread('../../img/book3.jpg')
+# src1 = cv2.imread('../data/book3.jpg') # error here?
+src1 = cv2.imread('../data/book_opcv.jpg') # homework - find the current course book
 img1 = cv2.cvtColor(src1, cv2.COLOR_BGR2GRAY)
 
 surF = cv2.xfeatures2d.SURF_create()
@@ -11,7 +12,8 @@ kp1,des1 = surF.detectAndCompute(img1, None)
 flan = cv2.FlannBasedMatcher_create()
 
 #2
-cap = cv2.VideoCapture('../../vid/book3.mp4')
+# cap = cv2.VideoCapture('../data/book3.mp4')
+cap = cv2.VideoCapture(0) # webcam
 ## cap = cv2.VideoCapture('http://172.30.1.28:4747/mjpegfeed') # droid cam
 frame_size = (int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)))
 print('frame_size = ', frame_size)

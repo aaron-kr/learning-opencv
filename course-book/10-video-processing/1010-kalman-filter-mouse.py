@@ -46,7 +46,7 @@ while True:
 
     x1,y1 = np.int0(last_z)
     x2,y2 = np.int0(z)
-    cv2.line(frame, (x1,y1), (x2,y2), (0,0,255), 2)
+    cv2.line(frame, (x1,y1), (x2,y2), (0,0,255), 2) # error here
 
     x1,y1,_,_ = np.int0(last_estimate)
     x2,y2,_,_ = np.int0(estimate)

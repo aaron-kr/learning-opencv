@@ -8,7 +8,8 @@ import matplotlib.animation as animation
     Estimating a Random Constant : off-line with cv2.KalmanFilter'''
 
 #1
-x = -0.37727 # truth value
+# x = -0.37727 # truth value
+x = 0.75454 # truth value
 
 q = 1e-5 # process noise covariance
 r = 0.01 # measurement noise covariance, 1, 0.0001

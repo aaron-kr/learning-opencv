@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 
 #1
-cap = cv2.VideoCapture('../../vid/vtest.avi')
+cap = cv2.VideoCapture('../data/vtest.avi')
 if ( not cap.isOpened() ):
   print('Error opening video')
 
@@ -15,6 +15,7 @@ bgMog2 = cv2.createBackgroundSubtractorMOG2(varThreshold = 25, detectShadows = F
 
 bgKnn1 = cv2.createBackgroundSubtractorKNN()
 bgKnn1 = cv2.createBackgroundSubtractorKNN(dist2Threshold = 1000, detectShadows = False)
+# KNN = K-Nearest Neighbors
 
 #2
 AREA_TH = 80 # area threshold
