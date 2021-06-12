@@ -41,5 +41,5 @@ fig.set_size_inches(5,5)
 
 plt.contourf(xx,yy,Z,cmap = plt.cm.gray)
 plt.contour(xx,yy,Z,colors = 'red')
-plt.scatter(*X[:,:].T, c y[:,0], s = 75)
+plt.scatter(*X[:,:].T, c = y[:,0], s = 75)
 plt.show()

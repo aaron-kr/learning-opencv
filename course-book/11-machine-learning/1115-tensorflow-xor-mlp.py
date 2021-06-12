@@ -13,7 +13,7 @@ n_hidden = 2
 n_class = 2
 
 #2
-X = tf.placeholder('float', [None, n_input])
+X = tf.placeholder('float', [None, n_input]) # from Tensorflow 2.x - no placeholder attribute
 Y = tf.placeholder('float', [None, n_class]) # target label
 
 # hidden layer

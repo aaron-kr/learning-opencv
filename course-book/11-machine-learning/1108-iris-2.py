@@ -33,7 +33,7 @@ ann = cv2.ml.ANN_MLP_create()
 ann.setLayerSizes(np.array([4,5,3]))
 # ann.setTrainMethod(cv2.ml.ANN_MLP_BACKPROP)
 ann.setActivationFunction(cv2.ml.ANN_MLP_SIGMOID_SYM)
-ann.setTermCriteria(cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_COUNT, 1000, 1e-5)
+ann.setTermCriteria((cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_COUNT, 1000, 1e-5))
 
 # ret = ann.train(samples = x_train, layout = cv2.ml.ROW_SAMPLE, responses = y_train)
 trainData = cv2.ml.TrainData_create(samples = x_train, layout = cv2.ml.ROW_SAMPLE, responses = y_train)

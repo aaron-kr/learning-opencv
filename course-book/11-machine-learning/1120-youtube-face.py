@@ -11,10 +11,10 @@ url = 'https://youtube.com/watch?v=S_0ikqqccJs'
 video = pafy.new(url)
 print('title = ', video.title)
 
-# best = video.getbest(preftype = 'webm')
-print('video.resolution = ', video.resolution)
+best = video.getbest(preftype = 'webm', ftypestrict = False) # .mp4, .3gp
+print('best.resolution = ', best.resolution) # error here - check how we fixed this in previous chapter with YouTube
 
-cap = cv2.VideoCapture(video.url)
+cap = cv2.VideoCapture(best.url)
 while(True):
   retval, frame = cap.read()
   if not retval:

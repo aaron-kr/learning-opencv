@@ -6,7 +6,8 @@ import cv2
 faceCascade = cv2.CascadeClassifier('./haarcascades/haarcascade_frontalface_default.xml')
 eyeCascade = cv2.CascadeClassifier('./haarcascades/haarcascade_eye.xml')
 
-src = cv2.imread('../data/lena.jpg')
+# src = cv2.imread('../data/lena.jpg')
+# Quiz = YouTube face from 1120.py
 gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
 
 faces = faceCascade.detectMultiScale(gray, 1.1, 3) # (gray, 1.1, 0)
@@ -20,7 +21,9 @@ for (x,y,w,h) in faces:
   eyes = eyeCascade.detectMultiScale(roi_gray)
 
   for (ex,ey,ew,eh) in eyes:
+    # if ey < (h//2):
     cv2.rectangle(roi_color, (ex,ey), (ex+ew,ey+eh), (0,255,0), 2)
+# cv2.imshow('frame', frame)
 
 cv2.imshow('src', src)
 cv2.waitKey(10)

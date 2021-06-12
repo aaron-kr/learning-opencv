@@ -3,9 +3,9 @@ import cv2
 import numpy as np
 
 #1
-ann = cv2.ml.ANN_MLP.load('../data/ann-minist_2layer_BP.train')
-# ann = cv2.ml.ANN_MLP.load('../data/ann-minist_2layer_100RPROP.train')
-# ann = cv2.ml.ANN_MLP.load('../data/ann-minist_3layer_50RPROP.train')
+ann = cv2.ml_ANN_MLP.load('../data/ann-minist_2layer_BP.train')
+# ann = cv2.ml_ANN_MLP.load('../data/ann-minist_2layer_100RPROP.train')
+# ann = cv2.ml_ANN_MLP.load('../data/ann-minist_3layer_50RPROP.train')
 
 #2
 def onMouse(event, x, y, flags, param):

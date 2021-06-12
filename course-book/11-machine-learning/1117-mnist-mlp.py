@@ -17,7 +17,7 @@ n_hidden = 100
 n_class = 10
 batch_size = 400
 
-X = tf.placeholder(tf.float32, [None, n_input])
+X = tf.placeholder(tf.float32, [None, n_input]) # from Tensorflow 2.x - no placeholder attribute
 Y = tf.placeholder(tf.float32, [None, n_class]) # target label
 
 initializer = tf.initializers.random_normal()

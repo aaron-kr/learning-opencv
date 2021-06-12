@@ -73,7 +73,7 @@ xx, yy = np.meshgrid(np.arange(xMin,xMax,h), np.arange(yMin,yMax,h))
 sample = np.c_[xx.ravel(), yy.ravel()]
 ret, Z = ann.predict(sample)
 Z = np.round(Z)
-Z = Z.reshape(xx.shape)
+Z = Z.reshape(xx.shape) # error reshaping
 
 markers = ('o','x','s','+','*','d')
 colors = ('b','g','c','m','y','k')

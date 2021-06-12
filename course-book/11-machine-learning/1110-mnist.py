@@ -23,7 +23,7 @@ def extract_data(filename, num_images):
     buf = bytestream.read(IMAGE_SIZE * IMAGE_SIZE * num_images)
     data = np.frombuffer(buf, dtype = np.uint8).astype(np.float32)
     # data = data / PIXEL_DEPTH
-    data = data.reshape(num_images, IMAGE_SIZE, IMAGE_SIZE)
+    data = data.reshape(num_images, IMAGE_SIZE, IMAGE_SIZE) # error reshaping
   
   return data
 

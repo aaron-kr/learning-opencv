@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 #1
 ann = cv2.ml.ANN_MLP_create()
-ann = mlp_net.load('../data/ann-xor.train')
+ann = mlp_net.load('../data/ann-xor.train') # error no mlp_net
 
 #2
 X = np.array([[0,0],[0,1],[1,0],[1,1]], dtype = np.float32)

@@ -60,7 +60,7 @@ def CNN(x):
   return output
 
 #3
-X = tf.placeholder(tf.float32, [None, 28, 28, 1])
+X = tf.placeholder(tf.float32, [None, 28, 28, 1]) # from Tensorflow 2.x - no placeholder attribute
 Y = tf.placeholder(tf.float32, [None, n_class]) # target label
 Ylogits = CNN(X)
 y_predict = tf.nn.softmax(Ylogits, name = 'softmax')
