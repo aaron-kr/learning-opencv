@@ -52,7 +52,7 @@ term_crit = (cv2.TERM_CRITERIA_MAX_ITER + cv2.TERM_CRITERIA_EPS, 10, 1)
 
 #3: Kalman filter setup
 q = 1e-5 # process noise covariance
-r = 0.01 # measurement noise covariance, 1, 0.0001
+r = 0.0001 # measurement noise covariance, 1, 0.0001
 dt = 1
 KF = cv2.KalmanFilter(4,2,0)
 KF.transitionMatrix = np.array([[1,0,dt,0],
@@ -101,6 +101,8 @@ while True:
         KF.errorCovPost = np.eye(4, dtype = np.float32) # P0 = I
 
         x,y,w,h = track_win
+        cx = x+w / 2
+        cy = y+h / 2
         KF.statePost = np.array([[x],[y],[0.],[0.]], dtype = np.float32)
         tracking_start = True
 
@@ -117,7 +119,7 @@ while True:
         cv2.rectangle(frame, (x,y), (x+w,y+h), (0,0,255), 2)
 
         #4-4: Kalman correct
-        z = np.array([[x][y]], dtype = np.float32) # measurement # error here
+        z = np.array([x,y], dtype = np.float32) # measurement # error here
         estimate = KF.correct(z)
         estimate = np.int0(estimate)
 
@@ -125,6 +127,11 @@ while True:
         x2,y2 = estimate[0][0], estimate[1][0]
         cv2.rectangle(frame, (x2,y2), (x2+w,y2+h), (255,0,0), 2)
         ## track_win = x2,y2,w,h
+        cx = x2+w//2
+        cy = y2+h//2
+        # cv2.ellipse(frame, (x2,y2), (255,0,0), 2)
+        cv2.circle(frame, (cx,cy), 20, (0,0,255), 2)
+        cv2.circle(frame, (cx,cy), 10, (0,0,255), -1)
     
     cv2.imshow('tracking', frame) # meanShift
     key = cv2.waitKey(25)

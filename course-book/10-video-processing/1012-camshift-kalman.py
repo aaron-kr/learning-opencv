@@ -115,7 +115,7 @@ while True:
         ## dst = cv2.polylines(frame2, [pts], True, (0,0,255), 2)
 
         #4-4: Kalman correct
-        z = np.array([[cx][cy]], dtype = np.float32) # measurement # error here
+        z = np.array([cx,cy], dtype = np.float32) # measurement # error here
         estimate = KF.correct(z)
         estimate = np.int0(estimate)
 

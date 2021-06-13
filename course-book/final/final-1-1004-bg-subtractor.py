@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 
 #1
-cap = cv2.VideoCapture('../data/vtest.avi')
+cap = cv2.VideoCapture('../../data/vtest.avi')
 if ( not cap.isOpened() ):
   print('Error opening video')
 
@@ -19,12 +19,15 @@ bgKnn1 = cv2.createBackgroundSubtractorKNN(dist2Threshold = 1000, detectShadows 
 
 #2
 AREA_TH = 80 # area threshold
+min_persons = 0
+max_persons = 0
 
 def findObjAndDraw(bImg, src):
   res = src.copy()
   bImg = cv2.erode(bImg, None, 5)
   bImg = cv2.dilate(bImg, None, 5)
   bImg = cv2.erode(bImg, None, 7)
+  num_ppl = 0
   
   contours, _ = cv2.findContours(bImg, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
   cv2.drawContours(src, contours, -1, (255,0,0), 1)
@@ -32,10 +35,13 @@ def findObjAndDraw(bImg, src):
   for i, cnt in enumerate(contours):
     area = cv2.contourArea(cnt)
     if area > AREA_TH:
+      num_ppl += 1
       x,y,w,h = cv2.boundingRect(cnt)
       cv2.rectangle(frame, (x,y), (x+w,y+h), (0,0,255), 2)
+  cv2.putText(frame, ('t = {}'.format(t)), (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 255, 255), 2)
+  cv2.putText(frame, ('people = {}'.format(num_ppl)), (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 255, 0), 2)
   
-  return res
+  return res, num_ppl
 
 #3
 t = 0
@@ -53,10 +59,13 @@ while True:
   bImg2 = bgMog2.apply(blur)
   bImg3 = bgKnn1.apply(blur)
   bImg4 = bgKnn1.apply(blur)
-  dst1 = findObjAndDraw(bImg1, frame)
-  dst2 = findObjAndDraw(bImg2, frame)
-  dst3 = findObjAndDraw(bImg3, frame)
-  dst4 = findObjAndDraw(bImg4, frame)
+  dst1, ppl1 = findObjAndDraw(bImg1, frame)
+  dst2, ppl2 = findObjAndDraw(bImg2, frame)
+  dst3, ppl3 = findObjAndDraw(bImg3, frame)
+  dst4, ppl4 = findObjAndDraw(bImg4, frame)
+
+  min_persons = np.amin([ppl1, ppl2, ppl3, ppl4])
+  max_persons = np.amax([ppl1, ppl2, ppl3, ppl4])
   
   ## if t == 50:
   # cv2.imshow('bImg1', bImg1)
