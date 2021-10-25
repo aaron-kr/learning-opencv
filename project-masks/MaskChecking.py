@@ -38,6 +38,11 @@ while(True):
         faces = faceCascade.detectMultiScale(gray, minSize=(50,50)) ## limit size of face
         n_faces = len(faces)
         n_eyes = n_noses = n_mouthes = 0
+
+        
+        text = 'No Mask'
+        color = (233,31,199) # purple
+
         ##print("Number of faces = ",faces)
         for (x, y, w, h) in faces:
             roi_gray  = gray[y:y+h, x:x+w]
@@ -46,9 +51,6 @@ while(True):
             ##print("Number of eyes = ", eyes)
             ##n_eyes = len(eyes)
             ##if  n_eyes == 2:
-
-            # Face Rectangle
-            cv2.rectangle(frame, (x,y),(x+w, y+h),(233,31,199), 2) # purple
 
             for (ex,ey,ew,eh) in eyes:
                 if ey < (h//2): ## find the eyes in the upper part of faces
@@ -70,13 +72,18 @@ while(True):
                     n_noses += 1
 
             if n_faces == 0 or n_noses > 0 or n_mouthes > 0:
-                cv2.putText(frame, 'No Mask', (x, y - 10),
-			        cv2.FONT_HERSHEY_SIMPLEX, 0.45, (233,31,199), 2)
+                color = (233,31,199) # purple
+                text = 'No Mask'
                 print("Wear a mask, please!")
             else :
-                cv2.putText(frame, 'Mask', (x, y - 10),
-			        cv2.FONT_HERSHEY_SIMPLEX, 0.45, (233,31,199), 2)
+                color = (211,245,100) # green
+                text = 'Mask'
                 print("Thank you for the mask!")
+
+            # Face Rectangle
+            cv2.rectangle(frame, (x,y),(x+w, y+h), color, 2) # purple
+            cv2.putText(frame, text, (x, y - 10),
+			    cv2.FONT_HERSHEY_SIMPLEX, 0.45, color, 2)
                     
         cv2.imshow('frame',frame)
         key = cv2.waitKey(1000)
